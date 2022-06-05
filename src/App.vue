@@ -6,8 +6,10 @@ import HelloWorld from "@/components/HelloWorld.vue";
 <template>
   <header>
     <figure>
-      <img alt="Greenboard logo" src="@/assets/logo.png" height="100" />
-      <h1>Greenboard Flash</h1>
+      <RouterLink to="/">
+        <img alt="Greenboard logo" src="@/assets/logo.png" height="100" />
+        <h1>Greenboard Flash</h1>
+      </RouterLink>
     </figure>
 
     <nav>
@@ -34,7 +36,7 @@ header {
   text-align: center;
 }
 
-figure {
+figure > * {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -89,7 +91,7 @@ nav a img {
     padding: 0;
   }
 
-  #app > * {
+  #app>* {
     padding: 2em;
   }
 
@@ -103,7 +105,7 @@ nav a img {
     z-index: 5;
   }
 
-  figure {
+  figure > * {
     flex-direction: row;
   }
 
