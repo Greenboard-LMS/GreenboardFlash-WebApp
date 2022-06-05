@@ -207,7 +207,13 @@ export default {
       <button>Create Plan</button>
     </p>
   </form>
-  <h1 v-else>Study plan generated!</h1>
+  <div v-else>
+    <h1>Study plan generated!</h1>
+    <p>6/6/2022 - Heredity</p>
+    <p>6/8/2022 - Trigonometric Integrals</p>
+    <p>6/10/2022 - Exam Day</p>
+  </div>
+
   
 </template>
 
