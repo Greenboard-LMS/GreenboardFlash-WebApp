@@ -114,6 +114,33 @@ export default {
             id: 1,
             name: "John Doe"
           }
+        },
+        {
+          id: 10,
+          title: "Chapter 1 Volkabeln",
+          topicId: 5,
+          flashcards: [
+            {
+              term: "Guten Tag!",
+              definition: "Hello - formal",
+            },
+            {
+              term: "Hallo!",
+              definition: "Hello - informal",
+            },
+            {
+              term: "Wie geht es Ihnen?",
+              definition: "How are you? - formal",
+            },
+            {
+              term: "Wie geht's?",
+              definition: "How are you? - informal",
+            }
+          ],
+          user: {
+            id: 1,
+            name: "John Doe"
+          }
         }
       ],
       topics: [
