@@ -111,6 +111,7 @@ nav a img {
     background-color: white;
     color: black;
     grid-column: 2;
+    min-height: 100vh;
   }
 
   nav {

@@ -170,8 +170,25 @@ export default {
   methods: {
     cardsetsInTopic(id) {
       return this.cardsets.filter(cardset => cardset.topicId === id)
+    },
+
+    async fetchCardsets() {
+      this.cardsets = null;
+      const response = await fetch("https://greenboardflash-backend.herokuapp.com/flash/cardsets/", {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Token ' + '342676e92cbfffb7741ac1df499acc28cb27528a'
+        }
+      });
+      this.cardsets = await response.json();
+      this.cardsets = this.cardsets.map(item => {
+        item.topicId = Math.round(Math.random() * 5);
+      })
     }
-  }
+  },
+  mounted() {
+    this.fetchCardsets();
+  },
 }
 </script>
 
@@ -186,7 +203,7 @@ export default {
             <router-link :to="'/cardset/' + cardset.id">
               <h3 class="cardset-title">{{ cardset.title }}</h3>
               <p>{{ cardset.flashcards.length }} flashcards</p>
-              <p>@{{ cardset.user.name }}</p>
+              <p>@{{ ["Silas", "Sarvesh", "Varun"][Math.round(Math.random() * 2)] }}</p>
             </router-link>
           </li>
         </ul>
