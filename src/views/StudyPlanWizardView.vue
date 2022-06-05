@@ -25,8 +25,5 @@ export default {
 <style>
 form, form * {
   padding: 1em;
-  border: 1px solid white;
-  color: white;
-  background: transparent;
 }
 </style>
