@@ -13,8 +13,8 @@ import HelloWorld from "@/components/HelloWorld.vue";
     </figure>
 
     <nav>
-      <RouterLink to="/study-plan-wizard"><img src="@/assets/studyplan.png" height="40" />Study Plan</RouterLink>
-      <RouterLink to="/flashcards"><img src="@/assets/flash-cards.png" height="40" />My Flashcards</RouterLink>
+      <RouterLink id="study-plan" to="/study-plan-wizard">Study Plan</RouterLink>
+      <RouterLink id="flashcards" to="/flashcards">My Flashcards</RouterLink>
     </nav>
   </header>
 
@@ -44,7 +44,7 @@ figure > * {
 
 figure h1 {
   font-size: 20px;
-  color: white;
+  color: var(--color-heading);
 }
 
 a,
@@ -63,14 +63,27 @@ nav {
   flex-direction: column;
 }
 
+
+
+nav a:not(.router-link-exact-active)::before {
+  content: "";
+  display: inline;
+  height: 40px;
+  width: 40px;
+  background-size: cover;
+  background-image: url('@/assets/calendar.png');
+  margin-right: 1em;
+}
+
 nav a.router-link-exact-active {
   background-color: green;
+  color: white;
 }
 
 nav a {
   display: flex;
   align-items: center;
-  color: white;
+  color: var(--color-heading);
   padding: 0 1rem;
   border-left: 1px solid var(--color-border);
   margin: 1em;
