@@ -12,6 +12,11 @@ export default {
     navItemActive(to) {
       return this.$route.path.includes(to);
     }
+  },
+  computed: {
+    darkMode() {
+      return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    }
   }
 }
 </script>
@@ -27,18 +32,18 @@ export default {
 
     <nav>
       <RouterLink to="/study-plan">
-        <img v-if="navItemActive('study-plan')" src="@/assets/studyplan.png" height="40" />
-        <img v-else src="@/assets/studyplan-dark.png" height="40" />
+        <img v-show="darkMode || navItemActive('study-plan')" src="@/assets/studyplan.png" height="40" />
+        <img v-show="!darkMode && !navItemActive('study-plan')" src="@/assets/studyplan-dark.png" height="40" />
         Study Plan
       </RouterLink>
       <RouterLink to="/flashcards">
-        <img v-if="navItemActive('flashcards')" src="@/assets/flashcards.png" height="40" />
-        <img v-else src="@/assets/flashcards-dark.png" height="40" />
+        <img v-show="darkMode || navItemActive('flashcards')" src="@/assets/flashcards.png" height="40" />
+        <img v-show="!darkMode && !navItemActive('flashcards')" src="@/assets/flashcards-dark.png" height="40" />
         My Flashcards
       </RouterLink>
       <RouterLink to="/explore">
-        <img v-if="navItemActive('explore')" src="@/assets/explore.png" height="40" />
-        <img v-else src="@/assets/explore-dark.png" height="40" />
+        <img v-show="darkMode || navItemActive('explore')" src="@/assets/explore.png" height="40" />
+        <img v-show="!darkMode && !navItemActive('explore')" src="@/assets/explore-dark.png" height="40" />
         Explore
       </RouterLink>
     </nav>
