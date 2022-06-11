@@ -2,6 +2,19 @@
 import { RouterLink, RouterView } from "vue-router";
 import HelloWorld from "@/components/HelloWorld.vue";
 </script>
+<script>
+export default {
+  data() {
+    return {
+    }
+  },
+  methods: {
+    navItemActive(to) {
+      return this.$route.path.includes(to);
+    }
+  }
+}
+</script>
 
 <template>
   <header>
@@ -13,8 +26,21 @@ import HelloWorld from "@/components/HelloWorld.vue";
     </figure>
 
     <nav>
-      <RouterLink id="study-plan" to="/study-plan-wizard">Study Plan</RouterLink>
-      <RouterLink id="flashcards" to="/flashcards">My Flashcards</RouterLink>
+      <RouterLink to="/study-plan">
+        <img v-if="navItemActive('study-plan')" src="@/assets/studyplan.png" height="40" />
+        <img v-else src="@/assets/studyplan-dark.png" height="40" />
+        Study Plan
+      </RouterLink>
+      <RouterLink to="/flashcards">
+        <img v-if="navItemActive('flashcards')" src="@/assets/flashcards.png" height="40" />
+        <img v-else src="@/assets/flashcards-dark.png" height="40" />
+        My Flashcards
+      </RouterLink>
+      <RouterLink to="/explore">
+        <img v-if="navItemActive('explore')" src="@/assets/explore.png" height="40" />
+        <img v-else src="@/assets/explore-dark.png" height="40" />
+        Explore
+      </RouterLink>
     </nav>
   </header>
 
@@ -36,7 +62,7 @@ header {
   text-align: center;
 }
 
-figure > * {
+figure>* {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,18 +87,6 @@ nav {
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
-}
-
-
-
-nav a:not(.router-link-exact-active)::before {
-  content: "";
-  display: inline;
-  height: 40px;
-  width: 40px;
-  background-size: cover;
-  background-image: url('@/assets/calendar.png');
-  margin-right: 1em;
 }
 
 nav a.router-link-exact-active {
@@ -118,7 +132,7 @@ nav a img {
     z-index: 5;
   }
 
-  figure > * {
+  figure>* {
     flex-direction: row;
   }
 
