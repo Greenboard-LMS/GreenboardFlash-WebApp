@@ -208,10 +208,8 @@ export default {
     </p>
   </form>
   <div v-else>
-    <h1>Study plan generated!</h1>
-    <p>6/6/2022 - Heredity</p>
-    <p>6/8/2022 - Trigonometric Integrals</p>
-    <p>6/10/2022 - Exam Day</p>
+    <h1>{{planName}} Study Plan</h1>
+    <p v-for="(cardset, index) in selectedCardsets">{{cardset}} - 6/{{index + 5}}/2022</p>
   </div>
 
   
@@ -225,5 +223,16 @@ form * {
 
 label {
   display: block;
+}
+
+select {
+  display: flex;
+  flex-wrap: wrap;
+  width: max-content;
+}
+
+option {
+  flex: 0;
+  min-width: calc(33% - 1em);
 }
 </style>

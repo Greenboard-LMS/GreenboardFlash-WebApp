@@ -31,10 +31,10 @@ export default {
     </figure>
 
     <nav>
-      <RouterLink to="/study-plan">
-        <img v-show="darkMode || navItemActive('study-plan')" src="@/assets/studyplan.png" height="40" />
-        <img v-show="!darkMode && !navItemActive('study-plan')" src="@/assets/studyplan-dark.png" height="40" />
-        Study Plan
+      <RouterLink to="/study-plans">
+        <img v-show="darkMode || navItemActive('study-plans')" src="@/assets/studyplan.png" height="40" />
+        <img v-show="!darkMode && !navItemActive('study-plans')" src="@/assets/studyplan-dark.png" height="40" />
+        Study Plans
       </RouterLink>
       <RouterLink to="/flashcards">
         <img v-show="darkMode || navItemActive('flashcards')" src="@/assets/flashcards.png" height="40" />

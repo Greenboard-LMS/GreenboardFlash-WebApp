@@ -7,12 +7,17 @@ const router = createRouter({
     {
       path: "/",
       name: "/",
-      component: () => import("../views/StudyPlanView.vue"),
+      component: () => import("../views/StudyPlansView.vue"),
     },
     {
-      path: "/study-plan",
-      name: "study-plan",
-      component: () => import("../views/StudyPlanView.vue"),
+      path: "/study-plans",
+      name: "study-plans",
+      component: () => import("../views/StudyPlansView.vue"),
+    },
+    {
+      path: "/study-plan-wizard",
+      name: "study-plan-wizard",
+      component: () => import("../views/StudyPlanWizardView.vue"),
     },
     {
       path: "/flashcards",
